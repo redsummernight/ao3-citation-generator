@@ -51,35 +51,28 @@ var ACG = (function() {
     };
 
     m.getCitation = function(info, style) {
-        var c = '';
-        switch (style) {
-            case 'social-sciences':
-                c += info.author + '. ';
-                c += info.publishedDate.getUTCFullYear() + '. ';
-                c += '"' + info.title + '." ';
-                c += m.getFandomDescription(info.fandoms) + ' fan fiction. ';
-                if (info.relationships.length === 1 && info.categories.length === 1) {
-                    c += m.getRelationshipDescription(info.relationships[0], info.categories[0]) + '. ';
-                }
-                c += '<em>Archive of Our Own</em>, ';
-                c += info.publishedDate.getUTCDate() + ' ' + getMonthName(info.publishedDate.getUTCMonth()) + '. ';
-                c += '<a href=' + info.url + '>' + info.url + '</a>.';
-                break;
-            case 'humanities':
-                c += info.author + '. ';
-                c += '"' + info.title + '." ';
-                c += m.getFandomDescription(info.fandoms) + ' fan fiction. ';
-                if (info.relationships.length === 1 && info.categories.length === 1) {
-                    c += m.getRelationshipDescription(info.relationships[0], info.categories[0]) + '. ';
-                }
-                c += '<em>Archive of Our Own</em>, ';
-                c += info.publishedDate.getUTCDate() + ' ' + getMonthName(info.publishedDate.getUTCMonth()) + ' ';
-                c += info.publishedDate.getUTCFullYear() + '. ';
-                c += '<a href=' + info.url + '>' + info.url + '</a>.';
-                break;
-            default:
-                throw 'Unknown citation style';
+        if (style !== 'social-sciences' && style !== 'humanities') {
+            throw 'Unknown citation style';
         }
+
+        var c = '';
+        c += info.author + '. ';
+        if (style === 'social-sciences') {
+            c += info.publishedDate.getUTCFullYear() + '. ';
+        }
+        c += '"' + info.title + '." ';
+        c += m.getFandomDescription(info.fandoms) + ' fan fiction. ';
+        if (info.relationships.length === 1 && info.categories.length === 1) {
+            c += m.getRelationshipDescription(info.relationships[0], info.categories[0]) + '. ';
+        }
+        c += '<em>Archive of Our Own</em>, ';
+        c += info.publishedDate.getUTCDate() + ' ' + getMonthName(info.publishedDate.getUTCMonth());
+        if (style === 'social-sciences') {
+            c += '. ';
+        } else if (style === 'humanities') {
+            c += ' ' + info.publishedDate.getUTCFullYear() + '. ';
+        }
+        c += '<a href=' + info.url + '>' + info.url + '</a>.';
         return c;
     };
 
