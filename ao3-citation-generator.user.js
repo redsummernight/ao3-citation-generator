@@ -5,6 +5,7 @@
 // @description  Cite fan works from AO3
 // @author       redsummernight
 // @match        *://archiveofourown.org/works/*
+// @match        *://archiveofourown.org/chapters/*
 // @grant        GM_addStyle
 // ==/UserScript==
 
@@ -115,8 +116,13 @@ if (typeof document !== "undefined") {
         }
 
         function getInfo() {
+            var url = document.URL;
+            var entireWork = document.querySelector('.chapter.entire a');
+            if (entireWork !== null) {
+                url = 'http://archiveofourown.org' + entireWork.getAttribute('href');
+            }
             return {
-                url: ACG.getWorkURL(document.URL),
+                url: ACG.getWorkURL(url),
                 title: getText('.title.heading'),
                 author: getText('[rel=author]'),
                 // Where the string is ISO 8601 date only, the UTC time zone is used to interpret arguments.
