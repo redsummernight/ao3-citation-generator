@@ -40,9 +40,15 @@
         return monthNames[index];
     }
 
+    function getWorkURL(url) {
+        var re = /(.*\/works\/\d+)*/;
+        url = url.split('#')[0];
+        return re.exec(url)[1];
+    }
+
     function getInfo() {
         return {
-            url: document.URL.split('#')[0],
+            url: getWorkURL(document.URL),
             title: getText('.title.heading'),
             author: getText('[rel=author]'),
             // Where the string is ISO 8601 date only, the UTC time zone is used to interpret arguments.
