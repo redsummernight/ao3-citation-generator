@@ -20,3 +20,21 @@ describe('Parse work link', function() {
         expect(ACG.getWorkURL(url + '#work_endnotes')).toBe(url);
     });
 });
+
+describe('Generate ship', function() {
+    // Not enough info to parse multiple ships: which is slash?
+    // Only try to parse one ship
+    var ship = 'A/B';
+    it('F/F slash', function() {
+        expect(ACG.getRelationshipDescription(ship, 'F/F')).toBe(ship + ' slash');
+    });
+    it('M/M slash', function() {
+        expect(ACG.getRelationshipDescription(ship, 'M/M')).toBe(ship + ' slash');
+    });
+    it('Others', function() {
+        expect(ACG.getRelationshipDescription(ship, 'Gen')).toBe(ship);
+        expect(ACG.getRelationshipDescription(ship, 'F/M')).toBe(ship);
+        expect(ACG.getRelationshipDescription(ship, 'Multi')).toBe(ship);
+        expect(ACG.getRelationshipDescription(ship, 'Other')).toBe(ship);
+    });
+});
