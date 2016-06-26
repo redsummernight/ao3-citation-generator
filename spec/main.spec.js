@@ -21,6 +21,27 @@ describe('Parse work link', function() {
     });
 });
 
+describe('Generate fandom', function() {
+    it('No fandom, what', function() {
+        expect(function() {
+            ACG.getFandomDescription([]);
+        }).toThrow('No fandom');
+    });
+    it('One fandom', function() {
+        var fandom = 'Overwatch (Video Game)';
+        expect(ACG.getFandomDescription([fandom])).toBe(fandom);
+    });
+    it('2+ fandoms', function() {
+        var f1 = 'The Avengers (Marvel Movies)',
+            f2 = 'Bishoujo Senshi Sailor Moon | Pretty Guardian Sailor Moon',
+            f3 = 'Mahou Shoujo Madoka Magika | Puella Magi Madoka Magica',
+            f4 = 'Young Avengers';
+        expect(ACG.getFandomDescription([f1, f2])).toBe(f1 + '/' + f2 + ' crossover');
+        expect(ACG.getFandomDescription([f1, f2, f3])).toBe(f1 + '/' + f2 + '/' + f3 + ' crossover');
+        expect(ACG.getFandomDescription([f1, f2, f3, f4])).toBe('Multifandom');
+    });
+});
+
 describe('Generate ship', function() {
     // Not enough info to parse multiple ships: which is slash?
     // Only try to parse one ship
