@@ -111,7 +111,7 @@ describe('Generate citation', function() {
         expect(ACG.getCitation(info, 'humanities')).toBe(c);
     });
 
-    it('Ignore ship description for ship types', function() {
+    it('Ignore ship description for multiple ship types', function() {
         info.categories = ['M/F', 'M/M', 'F/F'];
         var c = 'Author Pseud. "Name of Short Story." Media Title fan fiction. ' +
             '<em>Archive of Our Own</em>, 1 January 2016. ' +
