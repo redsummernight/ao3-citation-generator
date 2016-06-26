@@ -72,7 +72,7 @@ var ACG = (function() {
         } else if (style === 'humanities') {
             c += ' ' + info.publishedDate.getUTCFullYear() + '. ';
         }
-        c += '<a href=' + info.url + '>' + info.url + '</a>.';
+        c += '<a href="' + info.url + '">' + info.url + '</a>.';
         return c;
     };
 
