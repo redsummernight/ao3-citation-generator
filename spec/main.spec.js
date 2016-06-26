@@ -118,4 +118,30 @@ describe('Generate citation', function() {
             '<a href="http://www.example.com/">http://www.example.com/</a>.';
         expect(ACG.getCitation(info, 'humanities')).toBe(c);
     });
+
+    it('Slash ships', function() {
+        var c = 'Author Pseud. "Name of Short Story." Media Title fan fiction. Fullcharname/Fullcharname slash. ' +
+            '<em>Archive of Our Own</em>, 1 January 2016. ' +
+            '<a href="http://www.example.com/">http://www.example.com/</a>.';
+        info.categories = ['F/F'];
+        expect(ACG.getCitation(info, 'humanities')).toBe(c);
+        info.categories = ['M/M'];
+        expect(ACG.getCitation(info, 'humanities')).toBe(c);
+    });
+
+    it('Crossover', function() {
+        var c = 'Author Pseud. "Name of Short Story." Title/Title 2 crossover fan fiction. Fullcharname/Fullcharname. ' +
+            '<em>Archive of Our Own</em>, 1 January 2016. ' +
+            '<a href="http://www.example.com/">http://www.example.com/</a>.';
+        info.fandoms = ['Title', 'Title 2'];
+        expect(ACG.getCitation(info, 'humanities')).toBe(c);
+    });
+
+    it('Mega-crossover', function() {
+        var c = 'Author Pseud. "Name of Short Story." Multifandom fan fiction. Fullcharname/Fullcharname. ' +
+            '<em>Archive of Our Own</em>, 1 January 2016. ' +
+            '<a href="http://www.example.com/">http://www.example.com/</a>.';
+        info.fandoms = ['Title', 'Title 2', 'Title 3', 'Title 4'];
+        expect(ACG.getCitation(info, 'humanities')).toBe(c);
+    });
 });
