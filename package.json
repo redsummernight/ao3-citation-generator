@@ -1,6 +1,6 @@
 {
   "name": "ao3-citation-generator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A user script that generates citations for fan works on AO3",
   "main": "ao3-citation-generator.user.js",
   "private": true,

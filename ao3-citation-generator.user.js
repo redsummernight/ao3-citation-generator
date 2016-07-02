@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         AO3 Citation Generator
 // @namespace    https://github.com/redsummernight
-// @version      1.0.0
+// @version      1.0.1
 // @description  Cite fan works from AO3
 // @author       redsummernight
 // @match        *://archiveofourown.org/works/*
@@ -53,6 +53,18 @@ var ACG = (function() {
         return r;
     };
 
+    m.getQuotedTitle = function(title) {
+        var t = title.replace(/"/g, '\'');
+
+        var titleWithoutQuotes = t.replace(/["']/g, ''),
+            lastCharWithoutQuotes = titleWithoutQuotes.charAt(titleWithoutQuotes.length - 1);
+        if (['.', '?', '!'].indexOf(lastCharWithoutQuotes) === -1) {
+            t += '.';
+        }
+
+        return '"' + t + '"';
+    };
+
     m.getCitation = function(info, style) {
         if (style !== 'social-sciences' && style !== 'humanities') {
             throw 'Unknown citation style';
@@ -63,7 +75,7 @@ var ACG = (function() {
         if (style === 'social-sciences') {
             c += info.publishedDate.getUTCFullYear() + '. ';
         }
-        c += '"' + info.title + '." ';
+        c += m.getQuotedTitle(info.title) + ' ';
         c += m.getFandomDescription(info.fandoms) + ' fan fiction. ';
         if (info.relationships.length === 1 && info.categories.length === 1) {
             c += m.getRelationshipDescription(info.relationships[0], info.categories[0]) + '. ';

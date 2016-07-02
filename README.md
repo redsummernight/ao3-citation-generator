@@ -11,6 +11,7 @@ Karen Hellekson, editor of *Transformative Works and Cultures*, with some modifi
 
 - Fandom names on AO3 are not italicized, as they can contain [more than just the titles](http://archiveofourown.org/wrangling_guidelines/4) of the original media.
 - Crossovers involving 4 or more fandoms are cited as "Multifandom". This limit is arbitrarily chosen.
+- Work titles with [quotation](https://owl.english.purdue.edu/owl/resource/577/02/) or [punctuation](https://owl.english.purdue.edu/owl/resource/577/03/) marks use MLA rules.
 
 ## Installation
 

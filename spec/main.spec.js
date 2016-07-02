@@ -68,6 +68,28 @@ describe('Generate ship', function() {
     });
 });
 
+describe('Generate titles', function() {
+    // https://owl.english.purdue.edu/owl/resource/577/02/
+    // https://owl.english.purdue.edu/owl/resource/577/03/
+
+    it('with quotation marks', function() {
+        expect(ACG.getQuotedTitle('"Title in quotes"')).toBe('"\'Title in quotes\'."');
+        expect(ACG.getQuotedTitle('\'Title in quotes\'')).toBe('"\'Title in quotes\'."');
+    });
+
+    it('with punctuation', function() {
+        expect(ACG.getQuotedTitle('Title, period.')).toBe('"Title, period."');
+        expect(ACG.getQuotedTitle('Title yeah!')).toBe('"Title yeah!"');
+        expect(ACG.getQuotedTitle('Title what?')).toBe('"Title what?"');
+    });
+
+    it('with punctuation and quotation marks', function() {
+        expect(ACG.getQuotedTitle('"Title, period."')).toBe('"\'Title, period.\'"');
+        expect(ACG.getQuotedTitle('"Title yeah!"')).toBe('"\'Title yeah!\'"');
+        expect(ACG.getQuotedTitle('"Title what?"')).toBe('"\'Title what?\'"');
+    });
+});
+
 describe('Generate citation', function() {
     var info;
 
@@ -142,6 +164,14 @@ describe('Generate citation', function() {
             '<em>Archive of Our Own</em>, 1 January 2016. ' +
             '<a href="http://www.example.com/">http://www.example.com/</a>.';
         info.fandoms = ['Title', 'Title 2', 'Title 3', 'Title 4'];
+        expect(ACG.getCitation(info, 'humanities')).toBe(c);
+    });
+
+    it('Titles with quotation marks', function() {
+        var c = 'Author Pseud. "\'Title in quotes\'." Media Title fan fiction. Fullcharname/Fullcharname. ' +
+            '<em>Archive of Our Own</em>, 1 January 2016. ' +
+            '<a href="http://www.example.com/">http://www.example.com/</a>.';
+        info.title = '"Title in quotes"';
         expect(ACG.getCitation(info, 'humanities')).toBe(c);
     });
 });
