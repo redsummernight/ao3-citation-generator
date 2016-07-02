@@ -1,10 +1,16 @@
 # ao3-citation-generator [![Build Status](https://travis-ci.org/redsummernight/ao3-citation-generator.svg?branch=master)](https://travis-ci.org/redsummernight/ao3-citation-generator)
 
-This user script generates citations for fan works on [Archive of Our Own](http://archiveofourown.org/), following
-the [style guide](http://www.transformativeworks.org/how-to-cite-fan-works/) developed by Karen Hellekson,
-editor of *Transformative Works and Cultures*.
+This user script generates citations for fan works on [Archive of Our Own](http://archiveofourown.org/).
 
 Citations are automatically added to the information section at the top of each work/chapter page.
+
+## Style
+
+The script follows the [style guide](http://www.transformativeworks.org/how-to-cite-fan-works/) developed by
+Karen Hellekson, editor of *Transformative Works and Cultures*, with some modifications:
+
+- Fandom names on AO3 are not italicized, as they can contain [more than just the titles](http://archiveofourown.org/wrangling_guidelines/4) of the original media.
+- Crossovers involving 4 or more fandoms are cited as "Multifandom". This limit is arbitrarily chosen.
 
 ## Installation
 
