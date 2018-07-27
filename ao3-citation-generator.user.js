@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         AO3 Citation Generator
 // @namespace    https://github.com/redsummernight
-// @version      1.0.1
+// @version      1.0.2
 // @description  Cite fan works from AO3
 // @author       redsummernight
 // @match        *://archiveofourown.org/works/*
