@@ -6,10 +6,13 @@
 // @author       redsummernight
 // @match        *://archiveofourown.org/works/*
 // @match        *://archiveofourown.org/chapters/*
+// @match        *://*.archiveofourown.org/works/*
+// @match        *://*.archiveofourown.org/chapters/*
 // @grant        GM_addStyle
 // @downloadURL  https://rawgit.com/redsummernight/ao3-citation-generator/master/ao3-citation-generator.user.js
 // @supportURL   https://github.com/redsummernight/ao3-citation-generator/issues
 // @website      https://github.com/redsummernight/ao3-citation-generator
+// @homepageURL  https://github.com/redsummernight/ao3-citation-generator
 // ==/UserScript==
 
 /* jshint newcap:false */
