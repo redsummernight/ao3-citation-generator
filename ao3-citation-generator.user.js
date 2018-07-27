@@ -167,6 +167,22 @@ if (typeof document !== "undefined") {
 
         insertCitation();
 
+        // Polyfill for Greasemonkey 4
+        // https://github.com/greasemonkey/gm4-polyfill/blob/a834d46afcc7d6f6297829876423f58bb14a0d97/gm4-polyfill.js#L32
+        if (typeof GM_addStyle == 'undefined') {
+            window.GM_addStyle = function(aCss) {
+                var head = document.getElementsByTagName('head')[0];
+                if (head) {
+                    var style = document.createElement('style');
+                    style.setAttribute('type', 'text/css');
+                    style.textContent = aCss;
+                    head.appendChild(style);
+                    return style;
+                }
+                return null;
+            };
+        }
+
         // http://stackoverflow.com/a/4407335
         GM_addStyle('.' + noSelectStyleClass + ' {' +
             '-webkit-touch-callout: none; /* iOS Safari */' +
