@@ -146,10 +146,15 @@ if (typeof document !== "undefined") {
         }
 
         function insertCitation() {
+            if (document.getElementById('citation')) {
+                return;
+            }
+
             var meta = document.querySelector('dl.work.meta');
             var info = getInfo();
 
             var dt = document.createElement('dt');
+            dt.id = 'citation';
             dt.innerHTML = '<a href="http://www.transformativeworks.org/how-to-cite-fan-works/">Citation</a>: ';
             meta.appendChild(dt);
 
