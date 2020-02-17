@@ -4,10 +4,9 @@
 // @version      1.0.3
 // @description  Cite fan works from AO3
 // @author       redsummernight
-// @match        *://archiveofourown.org/works/*
-// @match        *://archiveofourown.org/chapters/*
 // @match        *://*.archiveofourown.org/works/*
 // @match        *://*.archiveofourown.org/chapters/*
+// @match        *://*.archiveofourown.org/collections/*/works/*
 // @grant        GM_addStyle
 // @downloadURL  https://rawgit.com/redsummernight/ao3-citation-generator/master/ao3-citation-generator.user.js
 // @supportURL   https://github.com/redsummernight/ao3-citation-generator/issues
@@ -33,7 +32,8 @@ var ACG = (function() {
     m.getWorkURL = function(url) {
         var re = /(.*\/works\/\d+)*/;
         url = url.split('#')[0];
-        return re.exec(url)[1];
+        url = re.exec(url)[1];
+        return url.replace(/\/collections\/\w+(?=\/)/, '');
     };
 
     m.getFandomDescription = function(fandoms) {

@@ -22,6 +22,12 @@ describe('Parse work link', function() {
         var url = 'http://archiveofourown.org/works/7276459';
         expect(ACG.getWorkURL(url + '#work_endnotes')).toBe(url);
     });
+
+    it('Ignore collections', function() {
+        var urlWithCollection = 'https://archiveofourown.org/collections/ichirukimonth/works/20233627';
+        var url = 'https://archiveofourown.org/works/20233627';
+        expect(ACG.getWorkURL(urlWithCollection)).toBe(url);
+    });
 });
 
 describe('Generate fandom', function() {
