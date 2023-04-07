@@ -21,7 +21,7 @@ or [Greasemonkey](https://www.greasespot.net/) (Firefox).
 
 Visit the following URL, and Tampermonkey will ask you if you want to install the script:
 
-> https://rawgit.com/redsummernight/ao3-citation-generator/master/ao3-citation-generator.user.js
+> https://github.com/redsummernight/ao3-citation-generator/raw/master/ao3-citation-generator.user.js
 
 Tampermonkey will automatically update the script if there's a new version available. You can manually update
 by visiting the above URL again.
