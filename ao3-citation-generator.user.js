@@ -8,7 +8,7 @@
 // @match        *://*.archiveofourown.org/chapters/*
 // @match        *://*.archiveofourown.org/collections/*/works/*
 // @grant        GM_addStyle
-// @downloadURL  https://rawgit.com/redsummernight/ao3-citation-generator/master/ao3-citation-generator.user.js
+// @downloadURL  https://github.com/redsummernight/ao3-citation-generator/raw/main/ao3-citation-generator.user.js
 // @supportURL   https://github.com/redsummernight/ao3-citation-generator/issues
 // @website      https://github.com/redsummernight/ao3-citation-generator
 // @homepageURL  https://github.com/redsummernight/ao3-citation-generator

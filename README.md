@@ -1,4 +1,4 @@
-# ao3-citation-generator [![Build Status](https://travis-ci.org/redsummernight/ao3-citation-generator.svg?branch=master)](https://travis-ci.org/redsummernight/ao3-citation-generator)
+# ao3-citation-generator
 
 This user script generates citations for fan works on [Archive of Our Own](https://archiveofourown.org/).
 
@@ -21,7 +21,7 @@ or [Greasemonkey](https://www.greasespot.net/) (Firefox).
 
 Visit the following URL, and Tampermonkey will ask you if you want to install the script:
 
-> https://github.com/redsummernight/ao3-citation-generator/raw/master/ao3-citation-generator.user.js
+> https://github.com/redsummernight/ao3-citation-generator/raw/main/ao3-citation-generator.user.js
 
 Tampermonkey will automatically update the script if there's a new version available. You can manually update
 by visiting the above URL again.
