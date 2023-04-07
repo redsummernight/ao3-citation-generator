@@ -1,5 +1,7 @@
 # ao3-citation-generator
 
+[![Build Status](https://github.com/redsummernight/ao3-citation-generator/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/redsummernight/ao3-citation-generator/actions/workflows/ci.yml?query=branch%3Amain)
+
 This user script generates citations for fan works on [Archive of Our Own](https://archiveofourown.org/).
 
 Citations are automatically added to the information section at the top of each work/chapter page.
