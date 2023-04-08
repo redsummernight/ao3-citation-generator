@@ -5,9 +5,7 @@
   "main": "ao3-citation-generator.user.js",
   "private": true,
   "scripts": {
-    "test": "npm run jasmine && npm run jshint",
-    "jasmine": "./node_modules/.bin/jasmine-node spec",
-    "jshint": "./node_modules/.bin/jshint ."
+    "test": "npx jasmine && npx jshint --verbose ."
   },
   "repository": {
     "type": "git",
@@ -20,7 +18,7 @@
   },
   "homepage": "https://github.com/redsummernight/ao3-citation-generator#readme",
   "devDependencies": {
-    "jasmine-node": "^1.14.5",
+    "jasmine": "^4.6.0",
     "jshint": "^2.9.2"
   }
 }
