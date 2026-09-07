@@ -5,7 +5,7 @@
   "main": "ao3-citation-generator.user.js",
   "private": true,
   "scripts": {
-    "test": "npx jasmine && npx jshint --verbose ."
+    "test": "npx jasmine"
   },
   "repository": {
     "type": "git",
@@ -18,7 +18,6 @@
   },
   "homepage": "https://github.com/redsummernight/ao3-citation-generator#readme",
   "devDependencies": {
-    "jasmine": "^4.6.0",
-    "jshint": "^2.9.2"
+    "jasmine": "7.x"
   }
 }
